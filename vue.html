@@ -5,31 +5,33 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Document</title>
         <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
 </head>
 <body>
         <div id="vue">
                 
-                <button @click="high"> Counter равен: {{counter}}</button>
+                <button type="button" @click="getHashtags">Грузи</button>
 
+                <ul>
+                        <li v-for=""hashtag in hashtags> {{ hashtag }} </li>
+                </ul>
         </div>
 
         <script type="text/javascript">
                 let app = new Vue({
                         el: '#vue',
                         data: {
-                             counter: 4
+                           hashtags: '';
+                           cities: ''
                         },
                         created: function(){
-                              this.list  
-                        },
-                        created: function(){
-                                // this.counter = 3;
-                                this.high();
+                              console.log(this.url.hashtags);
                         },
                         methods: {
-                               high(){
-                                this.counter++;
-                               } 
+                              getHashtags(){
+                                // axios.get(this.url.hashtags)
+                              } 
                         }
                 })
         </script>
