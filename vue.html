@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+</head>
+<body>
+        <div id="vue" :title='message'>
+                {{message}}
+                <template v-if=" status == 1">
+                        <h1 >Заголовок 1</h1>
+                        <p> Описание 1</p>
+                </template>
+
+                <template v-else>
+                        <h1>Заголовок 2</h1>
+                        <p>Описание 2</p>
+                </template>
+
+                <h1 v-show="status">Заголовок с v-show</h1>
+
+                <!-- <div class="class-default-list" :class=" {active: isActive,  'btn-default': isBtn}"> -->
+                        <!-- <div :class="[isActive ? 'active' : 'disabled', 'default']"></div> -->
+                        <div :style="{ color: 'red', 'font-size': fontsize + 'px'}">Text</div>
+
+
+                </div>
+
+        </div>
+
+        <script type="text/javascript">
+                let app = new Vue({
+                        el: '#vue',
+                        data: {
+                                message: 'Hello Vue.js',
+                                status: 1,
+                                isActive: false,
+                                isBtn: true,
+                                fontsize: 40
+                        }
+                })
+        </script>
+</body>
+</html>
