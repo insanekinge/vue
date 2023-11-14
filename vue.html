@@ -9,7 +9,25 @@
 <body>
         <div id="vue">
                 
-                <button @click="high"> Counter равен: {{counter}}</button>
+                <ul >
+                        <li v-for="(item, index) in list">index {{index}}:  {{ item }}</li>
+                </ul>
+                <ul>
+                        <li v-for="user in users"> {{user.id}}: {{user.name}} </li>
+                </ul>
+
+                <table border="1" @click="nameFunction2">
+                        <thead>
+                                <th>ID</th>
+                                <th>Имя</th>
+                        </thead>
+                        <tbody>
+                                <tr v-for="user in users">
+                                        <td> {{ user.id}} </td>
+                                        <td> {{ user.name}} </td>
+                                </tr>
+                        </tbody>
+                </table>
 
         </div>
 
@@ -17,19 +35,19 @@
                 let app = new Vue({
                         el: '#vue',
                         data: {
-                             counter: 4
-                        },
-                        created: function(){
-                              this.list  
-                        },
-                        created: function(){
-                                // this.counter = 3;
-                                this.high();
+                               list: ['один' , ' два', 'три'],
+                               users: [
+                                { id:1 , name: 'Иван'},
+                                { id:2, name: 'Сергей'}
+                               ]
                         },
                         methods: {
-                               high(){
-                                this.counter++;
-                               } 
+                                nameFunction(){
+                                        alert('NameFunction1');
+                                },
+                                nameFunction2: function(){
+                                        alert('NameFunction2');
+                                }
                         }
                 })
         </script>
